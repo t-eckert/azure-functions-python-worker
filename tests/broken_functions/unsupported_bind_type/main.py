@@ -1,2 +1,2 @@
 def main(req, ret):
-    return 'trust me, it is OK!'
+    return "trust me, it is OK!"

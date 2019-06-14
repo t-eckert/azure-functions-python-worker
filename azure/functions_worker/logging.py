@@ -3,16 +3,15 @@ import logging.handlers
 import sys
 
 
-logger = logging.getLogger('azure.functions_worker')
-error_logger = logging.getLogger('azure.functions_worker_errors')
+logger = logging.getLogger("azure.functions_worker")
+error_logger = logging.getLogger("azure.functions_worker_errors")
 
 
 def setup(log_level, log_destination):
-    if log_level == 'TRACE':
-        log_level = 'DEBUG'
+    if log_level == "TRACE":
+        log_level = "DEBUG"
 
-    formatter = logging.Formatter(
-        'LanguageWorkerConsoleLog %(levelname)s: %(message)s')
+    formatter = logging.Formatter("LanguageWorkerConsoleLog %(levelname)s: %(message)s")
 
     error_handler = None
     handler = None
@@ -26,10 +25,10 @@ def setup(log_level, log_destination):
 
         handler = logging.StreamHandler(sys.stdout)
 
-    elif log_destination in ('stdout', 'stderr'):
+    elif log_destination in ("stdout", "stderr"):
         handler = logging.StreamHandler(getattr(sys, log_destination))
 
-    elif log_destination == 'syslog':
+    elif log_destination == "syslog":
         handler = logging.handlers.SysLogHandler()
 
     else:

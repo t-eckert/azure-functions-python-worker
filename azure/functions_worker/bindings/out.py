@@ -2,7 +2,6 @@ from azure.functions import _abc as azf_abc
 
 
 class Out(azf_abc.Out):
-
     def __init__(self):
         self.__value = None
 
